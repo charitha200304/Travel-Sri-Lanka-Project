@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Package {
+public class TravelPackages {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,4 +28,3 @@ public class Package {
     @Column(columnDefinition = "TEXT")
     private String includedServices;
 }
-
