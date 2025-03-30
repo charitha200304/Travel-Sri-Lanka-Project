@@ -3,6 +3,10 @@ package com.example.travel_agency.entity;
 
 import com.example.travel_agency.enums.Category;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "destinations")
@@ -22,18 +26,18 @@ public class Destination {
     private String imageURL;
 
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private Category cateogary;
 
     public Destination() {
     }
 
-    public Destination(Long id, String name, String location, String description, String imageURL, Category category) {
+    public Destination(Long id, String name, String location, String description, String imageURL, Category cateogary) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.description = description;
         this.imageURL = imageURL;
-        this.category = category;
+        this.cateogary = cateogary;
     }
 
     public Long getId() {
@@ -77,11 +81,11 @@ public class Destination {
     }
 
     public Category getCateogary() {
-        return category;
+        return cateogary;
     }
 
-    public void setCateogary(Category category) {
-        this.category = category;
+    public void setCateogary(Category cateogary) {
+        this.cateogary = cateogary;
     }
 
     @Override
@@ -92,7 +96,7 @@ public class Destination {
                 ", location='" + location + '\'' +
                 ", description='" + description + '\'' +
                 ", imageURL='" + imageURL + '\'' +
-                ", cateogary=" + category +
+                ", cateogary=" + cateogary +
                 '}';
     }
 }

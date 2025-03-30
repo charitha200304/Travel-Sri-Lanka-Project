@@ -6,7 +6,7 @@ import com.example.travel_agency.entity.Hotel;
 import com.example.travel_agency.entity.User;
 import com.example.travel_agency.repository.BookingRepo;
 import com.example.travel_agency.repository.HotelRepo;
-import com.example.travel_agency.repository.UserRepo;
+import com.example.travel_agency.repository.UsersRepo;
 import com.example.travel_agency.service.BookingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class BookingServiceImpl implements BookingService {
     private BookingRepo bookingRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private UsersRepo usersRepo;
 
     @Autowired
     private HotelRepo hotelRepo;
@@ -34,7 +34,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = modelMapper.map(bookingDTO, Booking.class);
 
 
-        Optional<User> optUser = userRepo.findById(bookingDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(bookingDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + bookingDTO.getUserId());
         }
@@ -62,7 +62,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = modelMapper.map(bookingDTO, Booking.class);
 
 
-        Optional<User> optUser = userRepo.findById(bookingDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(bookingDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + bookingDTO.getUserId());
         }

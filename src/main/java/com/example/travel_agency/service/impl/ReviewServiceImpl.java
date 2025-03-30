@@ -4,7 +4,7 @@ import com.example.travel_agency.dto.ReviewDTO;
 import com.example.travel_agency.entity.Review;
 import com.example.travel_agency.entity.User;
 import com.example.travel_agency.repository.ReviewRepo;
-import com.example.travel_agency.repository.UserRepo;
+import com.example.travel_agency.repository.UsersRepo;
 import com.example.travel_agency.service.ReviewService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class ReviewServiceImpl implements ReviewService {
     private ReviewRepo reviewRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private UsersRepo usersRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -29,7 +29,7 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = modelMapper.map(reviewDTO, Review.class);
 
         // Validate User
-        Optional<User> optUser = userRepo.findById(reviewDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(reviewDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + reviewDTO.getUserId());
         }
@@ -50,7 +50,7 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = modelMapper.map(reviewDTO, Review.class);
 
         // Validate User
-        Optional<User> optUser = userRepo.findById(reviewDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(reviewDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + reviewDTO.getUserId());
         }

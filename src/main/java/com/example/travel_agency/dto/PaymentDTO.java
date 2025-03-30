@@ -1,5 +1,9 @@
 package com.example.travel_agency.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 public class PaymentDTO {
     private Long id;

@@ -1,7 +1,7 @@
 package com.example.travel_agency.service;
 
 import com.example.travel_agency.entity.User;
-import com.example.travel_agency.repository.UserRepo;
+import com.example.travel_agency.repository.UsersRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,9 +12,9 @@ import java.util.Optional;
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
-    private final UserRepo userRepo;
+    private final UsersRepo userRepo;
 
-    public MyUserDetailService(UserRepo userRepo) {
+    public MyUserDetailService(UsersRepo userRepo) {
         this.userRepo = userRepo;
     }
 

@@ -1,6 +1,7 @@
 package com.example.travel_agency.dto;
 
 
+
 public class VehicleDTO {
     private Long id;
     private String type;

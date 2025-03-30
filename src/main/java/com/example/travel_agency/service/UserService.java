@@ -1,6 +1,8 @@
 package com.example.travel_agency.service;
 
+import com.example.travel_agency.dto.AuthTokenDTO;
 import com.example.travel_agency.dto.UserDTO;
+import com.example.travel_agency.dto.UserLoginDTO;
 
 import java.util.List;
 
@@ -12,4 +14,5 @@ public interface UserService {
     List<UserDTO> getAllUsers();
     List<UserDTO> getUsersByRole(String role);
     UserDTO getUserByEmail(String email);
+    AuthTokenDTO verifyUser(UserLoginDTO userDTO);
 }

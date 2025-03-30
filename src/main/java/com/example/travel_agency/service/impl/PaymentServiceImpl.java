@@ -4,7 +4,7 @@ import com.example.travel_agency.dto.PaymentDTO;
 import com.example.travel_agency.entity.Payment;
 import com.example.travel_agency.entity.User;
 import com.example.travel_agency.repository.PaymentRepo;
-import com.example.travel_agency.repository.UserRepo;
+import com.example.travel_agency.repository.UsersRepo;
 import com.example.travel_agency.service.PaymentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class PaymentServiceImpl implements PaymentService {
     private PaymentRepo paymentRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private UsersRepo usersRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -30,7 +30,7 @@ public class PaymentServiceImpl implements PaymentService {
         Payment payment = modelMapper.map(paymentDTO, Payment.class);
 
         // Validate User
-        Optional<User> optUser = userRepo.findById(paymentDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(paymentDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + paymentDTO.getUserId());
         }
@@ -51,7 +51,7 @@ public class PaymentServiceImpl implements PaymentService {
         Payment payment = modelMapper.map(paymentDTO, Payment.class);
 
         // Validate User
-        Optional<User> optUser = userRepo.findById(paymentDTO.getUserId());
+        Optional<User> optUser = usersRepo.findById(paymentDTO.getUserId());
         if (optUser.isEmpty()) {
             throw new RuntimeException("User not found with ID: " + paymentDTO.getUserId());
         }
