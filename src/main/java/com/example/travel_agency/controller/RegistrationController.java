@@ -17,7 +17,7 @@ public class RegistrationController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/register")
     public ResponseEntity<ResponseUtil> registerUser(@RequestBody UserDTO userDTO) {
         try {
             userService.save(userDTO);
